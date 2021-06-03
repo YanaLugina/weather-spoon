@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:weather_spoon/models/weather_forecast_daily.dart';
@@ -25,7 +26,10 @@ class WeatherApi {
     print('responce: ${response.body}');
 
     if(response.statusCode == 200) {
-      return WeatherForecast.fromJson(json)
+      return WeatherForecast.fromJson(json.decode(response.body));
+
+    } else {
+      throw Exception('Error response');
     }
   }
 }
