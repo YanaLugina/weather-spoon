@@ -75,8 +75,8 @@ class Coord {
   Coord({required this.lon, required this.lat});
 
   Coord.fromJson(Map<String, dynamic> json) {
-    lon = json['lon'].toDouble();
-    lat = json['lat'].toDouble();
+    lon = json['lon']?.toDouble();
+    lat = json['lat']?.toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -101,7 +101,7 @@ class WeatherList {
   late double gust;
   late int clouds;
   late double pop;
-  late double rain;
+  late double? rain;
 
   WeatherList(
       {required this.dt,
@@ -139,8 +139,8 @@ class WeatherList {
     deg = json['deg'];
     gust = json['gust'];
     clouds = json['clouds'];
-    pop = json['pop'].toDouble();
-    rain = json['rain'].toDouble();
+    pop = json['pop']?.toDouble();
+    rain = json['rain']?.toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -179,12 +179,12 @@ class Temp {
     required this.morn});
 
   Temp.fromJson(Map<String, dynamic> json) {
-    day = json['day'].toDouble();
-    min = json['min'].toDouble();
-    max = json['max'].toDouble();
-    night = json['night'].toDouble();
-    eve = json['eve'].toDouble();
-    morn = json['morn'].toDouble();
+    day = json['day']?.toDouble();
+    min = json['min']?.toDouble();
+    max = json['max']?.toDouble();
+    night = json['night']?.toDouble();
+    eve = json['eve']?.toDouble();
+    morn = json['morn']?.toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -211,10 +211,10 @@ class FeelsLike {
     required this.morn});
 
   FeelsLike.fromJson(Map<String, dynamic> json) {
-    day = json['day'].toDouble();
-    night = json['night'].toDouble();
-    eve = json['eve'].toDouble();
-    morn = json['morn'].toDouble();
+    day = json['day']?.toDouble();
+    night = json['night']?.toDouble();
+    eve = json['eve']?.toDouble();
+    morn = json['morn']?.toDouble();
   }
 
   Map<String, dynamic> toJson() {
