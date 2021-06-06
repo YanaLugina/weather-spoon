@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:weather_spoon/api/weather_api.dart';
 import 'package:weather_spoon/models/weather_forecast_daily.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:weather_spoon/widgets/city_view.dart';
 
 class WeatherForecastPage extends StatefulWidget {
+  const WeatherForecastPage({Key? key}) : super(key: key);
+
   @override
   _WeatherForecastPageState createState() => _WeatherForecastPageState();
 }
@@ -47,7 +50,12 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
                 future: forecastObject,
                 builder: (context, snapshot) {
                   if(snapshot.hasData) {
-                    return Text('All got', style: Theme.of(context).textTheme.headline5);
+                    return Column(
+                      children: <Widget>[
+                        const SizedBox(height: 50.0,),
+                        CityView(snapshot: snapshot)
+                      ],
+                    );
                   } else {
                     return const Center(
                       child: SpinKitDoubleBounce(
