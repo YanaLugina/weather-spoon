@@ -4,6 +4,7 @@ import 'package:weather_spoon/api/weather_api.dart';
 import 'package:weather_spoon/models/weather_forecast_daily.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:weather_spoon/widgets/city_view.dart';
+import 'package:weather_spoon/widgets/temp_view.dart';
 
 class WeatherForecastPage extends StatefulWidget {
   const WeatherForecastPage({Key? key}) : super(key: key);
@@ -53,7 +54,9 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
                     return Column(
                       children: <Widget>[
                         const SizedBox(height: 50.0,),
-                        CityView(snapshot: snapshot)
+                        CityView(snapshot: snapshot),
+                        const SizedBox(height: 50.0,),
+                        TempView(snapshot: snapshot),
                       ],
                     );
                   } else {

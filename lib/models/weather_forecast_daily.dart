@@ -1,3 +1,5 @@
+import 'package:weather_spoon/utilities/constants.dart';
+
 class WeatherForecast {
   City? city;
   late String cod;
@@ -160,6 +162,10 @@ class WeatherList {
     data['pop'] = pop;
     data['rain'] = rain;
     return data;
+  }
+
+  String getIconUrl() {
+    return Constants.WEATHER_IMAGES_URL + (weather != null ? weather![0].icon : '04d') + '.png&appid=' + Constants.WEATHER_APP_ID;
   }
 }
 
