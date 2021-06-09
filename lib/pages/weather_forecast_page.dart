@@ -4,6 +4,7 @@ import 'package:weather_spoon/api/weather_api.dart';
 import 'package:weather_spoon/models/weather_forecast_daily.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:weather_spoon/widgets/city_view.dart';
+import 'package:weather_spoon/widgets/detail_view.dart';
 import 'package:weather_spoon/widgets/temp_view.dart';
 
 class WeatherForecastPage extends StatefulWidget {
@@ -57,6 +58,8 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
                         CityView(snapshot: snapshot),
                         const SizedBox(height: 50.0,),
                         TempView(snapshot: snapshot),
+                        const SizedBox(height: 50.0,),
+                        DetailsView(snapshot: snapshot),
                       ],
                     );
                   } else {

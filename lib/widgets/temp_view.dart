@@ -11,16 +11,15 @@ class TempView extends StatelessWidget {
     var icon = forecastList.getIconUrl();
     var temp = forecastList.temp?.day.toStringAsFixed(0);
     var description = forecastList.weather![0].description.toUpperCase();
-    print(icon);
     return Container(
       alignment: Alignment.center,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
-            width: 34.0,
-            height: 34.0,
-            child: const Icon(Icons.cloud, size: 34.0,),
+            width: 54.0,
+            height: 54.0,
+            child: const Icon(Icons.cloud, size: 54.0,),
           ),
           const SizedBox(width: 20.0),
           Column(
