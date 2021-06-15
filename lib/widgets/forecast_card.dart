@@ -10,7 +10,7 @@ Widget forecastCard(AsyncSnapshot snapshot, int index) {
   dayOfWeek = fullDate.split(',')[0];
 
   var tempMin = forecastList[index].temp.min.toStringAsFixed(0);
-  var icon = forecastList[index].getIconUrl();
+  // var icon = forecastList[index].getIconUrl();
 
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
@@ -42,7 +42,7 @@ Widget forecastCard(AsyncSnapshot snapshot, int index) {
                         )
                     ),
                   ),
-                  Container(
+                  /*Container(
                     height: 10.0,
                     width: 10.0,
                     child: Image.network(
@@ -50,7 +50,7 @@ Widget forecastCard(AsyncSnapshot snapshot, int index) {
                         scale: 1.2,
                         color: Colors.white
                     ),
-                  ),
+                  ),*/
                 ],
               ),
             ],
