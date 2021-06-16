@@ -48,11 +48,12 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
               onPressed: () async {
                 var tappedName = await Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return CityPage();
+                          return const CityPage();
                 }));
                 if (tappedName != null) {
                   _cityName = tappedName;
                   forecastObject = WeatherApi().fetchWeatherForecastWithCity(cityName: _cityName);
+                  setState(() {});
                 }
               },
               icon: const Icon(Icons.location_city),
@@ -66,7 +67,7 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
               child: FutureBuilder<WeatherForecast>(
                 future: forecastObject,
                 builder: (context, snapshot) {
-                  if(snapshot.hasData) {
+                  if (snapshot.hasData) {
                     return Column(
                       children: <Widget>[
                         const SizedBox(height: 50.0,),
