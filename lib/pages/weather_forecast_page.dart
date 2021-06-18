@@ -28,7 +28,7 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
     forecastObject = WeatherApi().fetchWeatherForecastWithCity(cityName: _cityName);
 
     forecastObject.then((weather) {
-      print(weather.list[0].weather?[0].main);
+      // print(weather.list[0].weather?[0].main);
     });
   }
 
@@ -53,7 +53,11 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
                 if (tappedName != null) {
                   _cityName = tappedName;
                   forecastObject = WeatherApi().fetchWeatherForecastWithCity(cityName: _cityName);
-                  setState(() {});
+                  forecastObject.then((weather) {
+                    if (weather.list[0].weather != null) {
+                      setState(() {});
+                    }
+                  });
                 }
               },
               icon: const Icon(Icons.location_city),
