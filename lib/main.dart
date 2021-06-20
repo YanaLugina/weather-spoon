@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_spoon/pages/weather_forecast_page.dart';
+import 'package:weather_spoon/pages/location_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: WeatherForecastPage(),
+      home: LocationPage(),
     );
   }
 }

@@ -17,6 +17,7 @@ class TempView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
+            alignment: Alignment.center,
             width: 54.0,
             height: 54.0,
             child: const Icon(Icons.cloud, size: 54.0,),

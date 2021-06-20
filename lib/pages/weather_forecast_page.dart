@@ -10,7 +10,8 @@ import 'package:weather_spoon/widgets/detail_view.dart';
 import 'package:weather_spoon/widgets/temp_view.dart';
 
 class WeatherForecastPage extends StatefulWidget {
-  const WeatherForecastPage({Key? key}) : super(key: key);
+  final bool? locationWeather;
+  const WeatherForecastPage({Key? key, this.locationWeather}) : super(key: key);
 
   @override
   _WeatherForecastPageState createState() => _WeatherForecastPageState();
@@ -25,7 +26,13 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
   @override
   void initState() {
     super.initState();
-    forecastObject = WeatherApi().fetchWeatherForecastWithCity(cityName: _cityName);
+
+    if (widget.locationWeather != null) {
+      // forecastObject = WeatherApi().fetchWeatherForecast(cityName: _cityName, isCity: false);
+      forecastObject = WeatherApi().fetchWeatherForecast(cityName: '', isCity: false);
+    } else {
+      forecastObject = WeatherApi().fetchWeatherForecast(cityName: _cityName, isCity: true);
+    }
 
     forecastObject.then((weather) {
       // print(weather.list[0].weather?[0].main);
@@ -41,7 +48,11 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.my_location),
-          onPressed: () {},
+          onPressed: () {
+            setState(() {
+              forecastObject = WeatherApi().fetchWeatherForecast(cityName: '', isCity: false);
+            });
+          },
         ),
         actions: <Widget>[
           IconButton(
@@ -52,7 +63,7 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
                 }));
                 if (tappedName != null) {
                   _cityName = tappedName;
-                  forecastObject = WeatherApi().fetchWeatherForecastWithCity(cityName: _cityName);
+                  forecastObject = WeatherApi().fetchWeatherForecast(cityName: _cityName, isCity: true);
                   forecastObject.then((weather) {
                     if (weather.list[0].weather != null) {
                       setState(() {});
