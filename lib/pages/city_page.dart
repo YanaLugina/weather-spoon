@@ -14,12 +14,10 @@ class _CityPageState extends State<CityPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: SafeArea(
+        body: SafeArea(
           child: Column(
             children: <Widget>[
-              Container(
-                child: Padding(
+              Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: TextField(
                     cursorColor: Colors.blueGrey[800],
@@ -47,7 +45,6 @@ class _CityPageState extends State<CityPage> {
                       cityName = value;
                     },
                   ),
-                ),
               ),
               TextButton(
                 style: TextButton.styleFrom(
@@ -66,7 +63,6 @@ class _CityPageState extends State<CityPage> {
             ],
           ),
         ),
-      ),
     );
   }
 }

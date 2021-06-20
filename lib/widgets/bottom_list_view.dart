@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:weather_spoon/models/weather_forecast_daily.dart';
 import 'package:weather_spoon/widgets/forecast_card.dart';
