@@ -27,16 +27,14 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
   void initState() {
     super.initState();
 
-    if (widget.locationWeather != null) {
+    if (widget.locationWeather == true) {
       // forecastObject = WeatherApi().fetchWeatherForecast(cityName: _cityName, isCity: false);
       forecastObject = WeatherApi().fetchWeatherForecast(cityName: '', isCity: false);
-    } else {
-      forecastObject = WeatherApi().fetchWeatherForecast(cityName: _cityName, isCity: true);
     }
 
-    forecastObject.then((weather) {
+    /*forecastObject.then((weather) {
       // print(weather.list[0].weather?[0].main);
-    });
+    });*/
   }
 
   @override
@@ -63,7 +61,7 @@ class _WeatherForecastPageState extends State<WeatherForecastPage> {
                 }));
                 if (tappedName != null) {
                   _cityName = tappedName;
-                  forecastObject = WeatherApi().fetchWeatherForecast(cityName: _cityName, isCity: true);
+                  forecastObject = WeatherApi().fetchWeatherForecast(cityName: tappedName, isCity: true);
                   forecastObject.then((weather) {
                     if (weather.list[0].weather != null) {
                       setState(() {});

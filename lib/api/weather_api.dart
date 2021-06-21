@@ -7,10 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:weather_spoon/utilities/location.dart';
 
 class WeatherApi {
-  Future<WeatherForecast> fetchWeatherForecast(
-      { required String cityName , bool? isCity}
-      ) async {
-
+  Future<WeatherForecast> fetchWeatherForecast({ required String cityName , bool? isCity}) async {
     Location location = Location();
     await location.getCurrentLocation();
 
