@@ -137,7 +137,7 @@ class WeatherList {
         weather!.add(Weather.fromJson(v));
       });
     }
-    speed = json['speed'];
+    speed = json['speed']?.toDouble();
     deg = json['deg'];
     gust = json['gust'];
     clouds = json['clouds'];
